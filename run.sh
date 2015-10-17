@@ -51,6 +51,7 @@ commits() {
 
 main() {
   #git fetch origin master &> /dev/null
+  git branch
 
   while read -r line; do
     info "${line}"
