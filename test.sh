@@ -34,6 +34,13 @@ function info() {
 
 export -f fail success warn info
 
+GIT_HEAD=HEAD ./run.sh
+if [ $? -eq 0 ]; then
+  echo "HEAD commit branch:               SUCCESS"
+else
+  echo "HEAD commit branch:               FAIL"
+fi
+
 GIT_HEAD=single_valid ./run.sh
 if [ $? -eq 0 ]; then
   echo "Single valid commit branch:       SUCCESS"
