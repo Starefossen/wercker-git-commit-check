@@ -9,7 +9,7 @@ check() {
 
   # Commit Message Max Length
   if [ ${#message} -gt 100 ]; then
-    fail "commit message length can not be greater than 100"
+    fail "commit message \"${message}\" can not be longer than 100 chars"
     exit 1
   fi
 
@@ -21,7 +21,7 @@ check() {
       # This is a valid release commit message
       # exit 0
     else
-      fail "commit message format failed validation: \"Release vX.Y.Z-M.N\""
+      fail "commit message \"${message}\"failed validation: \"Release vX.Y.Z-M.N\""
       exit 1
     fi
   fi
@@ -38,7 +38,7 @@ check() {
     # This is valid commit message
     # exit 0
   else
-    fail "commit message format failed validation: \"type(scope): message\""
+    fail "commit message \"${message}\" failed validation: \"type(scope): message\""
     exit 1
   fi
 }
@@ -64,7 +64,7 @@ main() {
     check "${line}" || exit 1
   done <<< "$(commits "${GIT_HEAD}")"
 
-  success "commit messages validation succeeded"
+  success "commit messages are valid"
 }
 
 main;
