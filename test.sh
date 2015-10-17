@@ -2,7 +2,7 @@
 
 export VERBOSE=0
 
-for arg in $@; do
+for arg in "$@"; do
   if [[ ${arg} == "--verbose" || ${arg} == "-v" ]]; then
     export VERBOSE=1
   fi
