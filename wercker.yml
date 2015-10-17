@@ -6,3 +6,6 @@ build:
         - script:
             name: test.sh
             coce: ./test.sh --verbose
+   after-steps:
+       - turistforeningen/slack-notifier:
+               url: $SLACK_WEBHOOK_URL
