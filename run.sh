@@ -50,7 +50,7 @@ commits() {
 }
 
 main() {
-  git fetch origin master &> /dev/null
+  #git fetch origin master &> /dev/null
 
   while read -r line; do
     info "${line}"
