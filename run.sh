@@ -55,6 +55,11 @@ main() {
   fi
 
   while read -r line; do
+    # Return if there are no commits
+    if [[ "${line}" == "" ]]; then
+      exit
+    fi
+
     info "${line}"
     check "${line}" || exit 1
   done <<< "$(commits "${GIT_HEAD}")"
