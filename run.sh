@@ -16,7 +16,7 @@ check() {
   # Version Release Commit Message
   if [[ ${message} =~ ^Release ]]; then
     regex="^Release v[[:digit:]]+(.[[:digit:]]+){2}(-[a-z]+.[[:digit:]]+)?$"
-    if [[ ${message} =~ ${REGEX} ]]; then
+    if [[ ${message} =~ ${regex} ]]; then
       info "commit message is valid"
       # This is a valid release commit message
       # exit 0
