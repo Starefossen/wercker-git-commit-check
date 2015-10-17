@@ -3,3 +3,6 @@ build:
     steps:
         - shellcheck:
             files: "*.sh"
+        - script:
+            name: test.sh
+            coce: ./test.sh --verbose
