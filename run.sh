@@ -50,13 +50,14 @@ commits() {
 }
 
 main() {
-  #git fetch origin master &> /dev/null
-  git branch
+  if [ -z "${GIT_HEAD}" ]; then
+    export GIT_HEAD=HEAD
+  fi
 
   while read -r line; do
     info "${line}"
     check "${line}" || exit 1
-  done <<< "$(commits "${WERCKER_GIT_BRANCH}")"
+  done <<< "$(commits "${GIT_HEAD}")"
 
   success "commit messages validation succeeded"
 }

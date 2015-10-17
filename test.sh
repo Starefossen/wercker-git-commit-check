@@ -34,28 +34,28 @@ function info() {
 
 export -f fail success warn info
 
-WERCKER_GIT_BRANCH=single_valid ./run.sh
+GIT_HEAD=single_valid ./run.sh
 if [ $? -eq 0 ]; then
   echo "Single valid commit branch:       SUCCESS"
 else
   echo "Single valid commit branch:       FAIL"
 fi
 
-WERCKER_GIT_BRANCH=multiple_valid ./run.sh
+GIT_HEAD=multiple_valid ./run.sh
 if [ $? -eq 0 ]; then
   echo "Multiple valid commits branch:    SUCCESS"
 else
   echo "Multiple valid commits branch:    FAIL"
 fi
 
-WERCKER_GIT_BRANCH=single_fail ./run.sh
+GIT_HEAD=single_fail ./run.sh
 if [ $? -eq 1 ]; then
   echo "Single invalid commit branch:     SUCCESS"
 else
   echo "Single invalid commit branch:     FAIL"
 fi
 
-WERCKER_GIT_BRANCH=multiple_fail ./run.sh
+GIT_HEAD=multiple_fail ./run.sh
 if [ $? -eq 1 ]; then
   echo "Multiple invalid commits branch:  SUCCESS"
 else
