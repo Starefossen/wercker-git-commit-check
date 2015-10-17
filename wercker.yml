@@ -5,7 +5,7 @@ build:
                 files: "*.sh"
         - script:
                 name: test.sh
-                code: "./test.sh --verbose"
+                code: "./run.sh"
     after-steps:
         - turistforeningen/slack-notifier:
                 url: $SLACK_WEBHOOK_URL
