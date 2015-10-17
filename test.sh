@@ -35,14 +35,15 @@ function info() {
 export -f fail success warn info
 
 GIT_HEAD=HEAD ./run.sh
-if [ $? -eq 0 ]; then
+STATUS=$?
+if [ ${STATUS} -eq 0 ]; then
   echo "HEAD commit branch:               SUCCESS"
 else
   echo "HEAD commit branch:               FAIL"
 fi
 
 if [ "${CI}" == "true" ]; then
-  exit $?
+  exit ${STATUS}
 fi
 
 GIT_HEAD=single_valid ./run.sh
