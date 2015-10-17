@@ -41,6 +41,10 @@ else
   echo "HEAD commit branch:               FAIL"
 fi
 
+if [ "${CI}" == "true" ]; then
+  exit $?
+fi
+
 GIT_HEAD=single_valid ./run.sh
 if [ $? -eq 0 ]; then
   echo "Single valid commit branch:       SUCCESS"
