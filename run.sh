@@ -46,7 +46,7 @@ check() {
 commits() {
   local -r branch=$1
 
-  git log --pretty=format:'%s' master..${branch}
+  git log --pretty=format:'%s' "master..${branch}"
 }
 
 main() {
@@ -55,7 +55,7 @@ main() {
   while read -r line; do
     info "${line}"
     check "${line}" || exit 1
-  done <<< "$(commits ${WERCKER_GIT_BRANCH})"
+  done <<< "$(commits "${WERCKER_GIT_BRANCH}")"
 
   success "commit messages validation succeeded"
 }
