@@ -30,7 +30,7 @@ check() {
 
   # AngularJS Git Commit Message Conventions
   # https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y
-  TYPE="feat|fix|docs|style|refactor|test|chore"
+  TYPE="feat|fix|docs|style|refactor|test|chore|revert"
   SCOPE="\([^\)]+\)"
   SUBJECT="[^A-Z][^.]+"
   REGEX="^(${TYPE})(${SCOPE})?: (${SUBJECT})$"
