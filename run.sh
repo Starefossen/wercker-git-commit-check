@@ -21,7 +21,7 @@ check() {
       # This is a valid release commit message
       # exit 0
     else
-      fail "commit message \"${message}\"failed validation: \"Release vX.Y.Z-M.N\""
+      fail "commit message \"${message}\" failed validation: \"Release vX.Y.Z-M.N\""
       exit 1
     fi
   fi
@@ -60,7 +60,7 @@ main() {
       exit
     fi
 
-    info "${line}"
+    info "commit message \"${line}\""
     check "${line}" || exit 1
   done <<< "$(commits "${GIT_HEAD}")"
 
