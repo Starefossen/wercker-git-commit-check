@@ -10,6 +10,7 @@ check() {
   # Commit Message Max Length
   if [ ${#message} -gt 100 ]; then
     fail "commit message \"${message}\" can not be longer than 100 chars"
+    setMessage "\"${message}\" is not a valid commit"
     exit 1
   fi
 
@@ -22,6 +23,7 @@ check() {
       # exit 0
     else
       fail "commit message \"${message}\" failed validation: \"Release vX.Y.Z-M.N\""
+      setMessage "\"${message}\" is not a valid commit"
       exit 1
     fi
   fi
@@ -39,6 +41,7 @@ check() {
     # exit 0
   else
     fail "commit message \"${message}\" failed validation: \"type(scope): message\""
+    setMessage "\"${message}\" is not a valid commit"
     exit 1
   fi
 }

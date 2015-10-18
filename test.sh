@@ -8,6 +8,12 @@ for arg in "$@"; do
   fi
 done
 
+function setMessage() {
+  if [ ${VERBOSE} -eq 1 ]; then
+    echo "setMessage: $*"
+  fi
+}
+
 function fail() {
   if [ ${VERBOSE} -eq 1 ]; then
     echo "fail: $*"
@@ -32,7 +38,7 @@ function info() {
   fi
 }
 
-export -f fail success warn info
+export -f setMessage fail success warn info
 
 GIT_HEAD=HEAD ./run.sh
 STATUS=$?
